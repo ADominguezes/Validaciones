@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Charset general html ASCII caracteres especiales -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap_pgs.min.css" />
+<link rel="stylesheet" type="text/css" href="css/validaciones.css" />
+<link rel="stylesheet" type="text/css" href="css/chosen-custom-min.css" />
+
+<!-- JS -->
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/chosen.jquery.min.js"></script>
+<script src="js/validaciones.js"></script>
+<title>VALIDACIONES</title>
+</head>
+<body>
+	<div class="container">
+		<div class="alert alert-success hide" role="alert">
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<div class="msgSuccess"></div>
+		</div>
+		<div class="alert alert-warning hide" role="alert">
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<div class="msgError"></div>
+		</div>
+		<form class="form-inline">
+			<div class="col-md-4" style="margin-top: 1em">
+				<label for="nombre">Nombre</label> <input type="text"
+					class="form-control required" id="nombre" placeholder="Jane Doe"
+					onKeypress="comprobarCampo(this.id)"
+					onblur="comprobarCampo(this.id)" />
+			</div>
+			<div class="col-md-4" style="margin-top: 1em">
+				<label for="apellidos">Apellidos</label> <input type="text"
+					class="form-control required" id="apellidos"
+					onKeypress="comprobarCampo(this.id)"
+					onblur="comprobarCampo(this.id)" />
+			</div>
+			<div class="col-md-4" style="margin-top: 1em">
+				<label for="email">Email</label> <input type="text"
+					class="form-control required email" id="email"
+					placeholder="jane.doe@example.com"
+					onKeypress="comprobarCampo(this.id)"
+					onblur="comprobarCampo(this.id)" />
+			</div>
+			<div class="col-md-4" style="margin-top: 1em">
+				<label for="numero">Cantidad</label> <input type="text"
+					class="form-control required numero" id="numero"
+					placeholder="Inserta una cantidad"
+					onKeypress="comprobarCampo(this.id)"
+					onblur="comprobarCampo(this.id)" onFocus="focusCampo(this.id)" />
+			</div>
+			<div class="col-md-4" style="margin-top: 1em">
+				<label for="importe">Importe</label> <input type="text"
+					class="form-control required importe" id="importe"
+					placeholder="Inserta un importe"
+					onKeypress="comprobarCampo(this.id)"
+					onblur="comprobarCampo(this.id)" onFocus="focusCampo(this.id)" />
+			</div>
+			<div class="col-md-4" style="margin-top: 1em">
+				<label for="fecha">Fecha</label> <input type="text"
+					class="form-control required fecha" id="fecha"
+					placeholder="Inserta una fecha"
+					onblur="validarFormatoFecha(this.id, this.value)"
+					onFocus="focusCampo(this.id)" />
+			</div>
+			<div class="col-md-4" style="margin-top: 1em">
+				<label for="documento">DNI y CIF</label> <input type="text"
+					class="form-control required documento" id="documento"
+					placeholder="Inserta un DNI o un CIF"
+					onblur="comprobarCampo(this.id)"
+					onKeypress="comprobarCampo(this.id)" />
+			</div>
+			<div class="col-md-4" style="margin-top: 1em">
+				<div class="radio required col-md-12">
+					<label> <input type="radio" name="color"
+						id="optionsRadios1" class="radioButton" value="Rojo"> Rojo
+					</label> <label> <input type="radio" name="color"
+						id="optionsRadios2" class="radioButton" value="Azul"> Azul
+					</label> <label> <input type="radio" name="color"
+						id="optionsRadios3" class="radioButton" value="Verde">
+						Verde
+					</label>
+				</div>
+				<div class="radio required col-md-12">
+					<label> <input type="radio" name="tamano" id="option1"
+						class="radioButton" value="Alto"> Alto
+					</label> <label> <input type="radio" name="tamano" id="options2"
+						class="radioButton" value="Ancho"> Ancho
+					</label> <label> <input type="radio" name="tamano" id="options3"
+						class="radioButton" value="Grosor"> Grosor
+					</label>
+				</div>
+			</div>
+			<div class="col-md-4" style="margin-top: 1em">
+				<div class="checkbox required col-md-12">
+					<label> <input type="checkbox" value="Si" class="check">
+						Cuenta
+					</label> <label> <input type="checkbox" value="No" class="check">
+						Número
+					</label> <label> <input type="checkbox" value="Disabled" disabled
+						class="check"> Disabled
+					</label>
+				</div>
+				<div class="checkbox col-md-12">
+					<label> <input type="checkbox" value="Hey" class="check">
+						Si
+					</label> <label> <input type="checkbox" value="Hola" class="check">
+						No
+					</label>
+				</div>
+			</div>
+			<div class="col-md-4" style="margin-top: 1em">
+				<label for="paises">Seleccion País</label> <select
+					class="form-control select required chosen-select" id="paises"
+					name="paises" style="width: 200px">
+					<option value="null" selected hidden>Selecciona una
+						opcion...</option>
+					<option label="pais1" value="Pais 1">España</option>
+					<option label="pais2" value="Pais 2">Portugal</option>
+				</select>
+			</div>
+			<div class="col-md-4" style="margin-top: 1em">
+				<label for="select">Ciudad</label> <select
+					class="form-control select required chosen-select" id="select"
+					style="width: 200px">
+					<option value="null" selected hidden>Selecciona una
+						opcion...</option>
+					<option label="ciudad1" value="Ciudad 1">Cáceres</option>
+					<option label="ciudad2" value="Ciudad 2">Badajoz</option>
+				</select>
+			</div>
+			<div class="col-md-12" style="margin-top: 1em">
+				<button type="button" class="btn btn-default"
+					onClick="comprobarObligatorios()">Enviar</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

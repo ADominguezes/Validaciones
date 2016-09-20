@@ -1,0 +1,20 @@
+.has-error{
+	border:1px solid #A1302E;
+	border-color:#A1302E !important;
+	background:#F2DEDE;
+}
+.has-success {
+	border:1px solid #92e485;
+	border-color: #92e485;
+	background-color: #f8fff7;
+}
+.has-errorCheck {
+	color:#A1302E;
+}
+.has-successCheck {
+	color:#92e485;
+}
+.alert {
+	font-family: opensans-regular,Arial,"Helvetica Neue",Helvetica,sans-serif;
+	font-size: 15px;
+}
